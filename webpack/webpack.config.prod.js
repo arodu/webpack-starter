@@ -1,3 +1,5 @@
+'use strict';
+
 const Path = require('path');
 const Webpack = require('webpack');
 const merge = require('webpack-merge');
@@ -8,25 +10,29 @@ module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
   stats: 'errors-only',
-  bail: true,
-  output: {
-    filename: 'js/[name].[chunkhash:8].js',
-    chunkFilename: 'js/[name].[chunkhash:8].chunk.js'
-  },
+  // optimization: {
+  //   minimize: true
+  // },
   plugins: [
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
+    // compiling mode ?scope hoisting?
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/bundle.css'
     })
   ],
+  resolve: {
+    alias: {
+      '~': Path.resolve(__dirname, '../src')
+    }
+  },
   module: {
     rules: [
       {
         test: /\.(js)$/,
-        exclude: /node_modules/,
+        exclude: /(node_modules|bower_components)/,
         use: 'babel-loader'
       },
       {
@@ -34,7 +40,7 @@ module.exports = merge(common, {
         use : [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader'
+          'sass-loader?outputStyle=compressed'
         ]
       }
     ]

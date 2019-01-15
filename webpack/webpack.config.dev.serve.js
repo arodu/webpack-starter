@@ -5,6 +5,7 @@ const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common.js');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -14,6 +15,9 @@ module.exports = merge(common, {
   //   minimize: true
   // },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: Path.resolve(__dirname, '../src/index.html'),
+    }),
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
