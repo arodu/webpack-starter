@@ -7,9 +7,6 @@
     "build": "npm run remove; webpack --config webpack/webpack.config.prod.js  --colors",
     "dev": "npm run remove; webpack --config webpack/webpack.config.dev.js  --colors --watch --verbose",
     "start": "npm run remove; webpack-dev-server --open --config webpack/webpack.config.dev.serve.js",
-    "install": "npm run install:prod",
-	"install:prod": "npm install --production",
-    "install:dev": "npm install",
     "remove": "rm -rf dist/; rm -rf index.html;"
   },
   "repository": {
