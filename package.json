@@ -1,0 +1,54 @@
+{
+  "name": "webpack-starter",
+  "version": "1.0.0",
+  "description": "Starter Kit for Webpack",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack/webpack.config.prod.js  --colors",
+    "dev": "webpack --config webpack/webpack.config.dev.js  --colors",
+    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
+    "remove": "rm -rf build/; rm -rf index.html;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arodu/webpack-starter.git"
+  },
+  "keywords": [
+    "webpack",
+    "starter",
+    "kit",
+    "node",
+    "javascript",
+    "es6",
+    "sass"
+  ],
+  "author": "Alberto Rodriguez <arodu.dev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arodu/webpack-starter/issues"
+  },
+  "homepage": "https://github.com/arodu/webpack-starter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.12.0",
+    "eslint-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
+  }
+}
