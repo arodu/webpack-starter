@@ -24,7 +24,7 @@ module.exports = merge(common, {
     // compiling mode ?scope hoisting?
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/bundle.css'
+      filename: 'css/bundle.css?h=[hash]'
     })
   ],
   resolve: {
