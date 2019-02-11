@@ -5,6 +5,7 @@ const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common.js');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -21,7 +22,8 @@ module.exports = merge(common, {
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/bundle.css?h=[hash]'
-    })
+    }),
+    new LiveReloadPlugin({})
   ],
   resolve: {
     alias: {
